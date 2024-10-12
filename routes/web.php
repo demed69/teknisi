@@ -16,8 +16,18 @@ use Inertia\Inertia;
 |
 */
 
+// Route::get('/', function () {
+//     return inertia::render('login');
+// });
 
-Route::get('/', function () {
+
+
+route::get('/admin', function () {
+    return inertia::render('admin');
+});
+
+
+Route::get('/homepage', function () {
     return inertia::render('homepage'); // Mengarahkan ke komponen Homepage
 });
 
@@ -31,7 +41,7 @@ Route::get('/welcome', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
+Route::get('/', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
