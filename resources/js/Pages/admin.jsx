@@ -7,7 +7,6 @@ export default function Admin(props){
     return(
          <div>
             <Head title='welcome to admin' />
-            <LoadingScreen />
             <AdminComponent />
         </div>
     );
