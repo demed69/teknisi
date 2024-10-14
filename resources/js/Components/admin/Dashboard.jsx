@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 const Dashboard = () => {
     return (
-        <>
+        <div>
             {/* Dashboard Overview */}
             <section className="dashboard-overview">
                 <div className="card">
@@ -58,7 +58,7 @@ const Dashboard = () => {
                     </tbody>
                 </table>
             </section>
-        </>
+        </div>
     );
 };
 

@@ -1,10 +1,20 @@
 import React from 'react';
+import TambahUser from './Tambah_user';
 
 const UserList = () => {
   return (
     <>
     <div className='flex flex-row '>
-      <button className="btn btn-accent">tambah Pengguna</button>
+     {/* Open the modal using document.getElementById('ID').showModal() method */}
+            <button className="btn" onClick={()=>document.getElementById('my_modal_2').showModal()}>Tambah Pengguna</button>
+            <dialog id="my_modal_2" className="modal">
+              <div className="modal-box">
+                <TambahUser />
+              </div>
+              <form method="dialog" className="modal-backdrop">
+                <button>close</button>
+              </form>
+            </dialog>
       <div className="ml-2 mb-2"> {/* Tambahkan margin kiri */}
         <button className="btn btn-error">Hapus</button>
       </div>

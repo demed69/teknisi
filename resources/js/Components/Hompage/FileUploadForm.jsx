@@ -41,9 +41,12 @@ const FileUploadForm = () => {
             type="file"
             id="fileUpload"
             onChange={handleFileChange}
-            className="block"
+            className="file-input file-input-bordered file-input-accent w-full max-w-xs "
           />
         </div>
+      </div>
+      <div>
+        <textarea className="textarea textarea-accent" placeholder="isi penjelasan yang di perbaiki"></textarea>
       </div>
       <div className='mt-4'>
         <button className="btn btn-active btn-accent" type="submit">Submit</button>
