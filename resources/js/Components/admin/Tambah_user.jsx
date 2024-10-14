@@ -103,7 +103,7 @@ const TambahUser = () => {
         </div>
 
         <div className="flex justify-end">
-            <button className="btn btn-active btn-accent">Accent</button>
+            <button className="btn btn-active btn-accent">Tambah Pengguna</button>
         </div>
 
     </div>
