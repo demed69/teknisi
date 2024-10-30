@@ -60,7 +60,7 @@ const TambahUser = () => {
                 <div className="label">
                     <span className="label-text">alamat</span>
                 </div>
-                <input type="text" placeholder="0888888" className="input input-bordered w-full max-w-xs" />
+                <input type="text" placeholder="jalan sutoyo bkn" className="input input-bordered w-full max-w-xs" />
                 <div className="label">
                 </div>
                 </label>

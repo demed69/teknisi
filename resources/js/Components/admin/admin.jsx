@@ -1,44 +1,58 @@
 import React, { useState } from 'react';
-import '@/Components/css/AdminDashboard.css'; // Buat file CSS untuk styling
-import UserList from './user';
-import Dashboard from '@/Components/admin/Dashboard'; // Mengimpor komponen Dashboard
+import '@/Components/css/AdminDashboard.css';
+import UserList from './user/user';
+import Dashboard from '@/Components/admin/Dashboard';
+import { FaUsers, FaTachometerAlt, FaBriefcase, FaCog, FaBars, FaTimes } from 'react-icons/fa';
 
 const AdminDashboard = () => {
-  const [showUsers, setShowUsers] = useState(false); // State untuk mengelola tampilan UserList
-  const [showDashboard, setShowDashboard] = useState(true); // Set default ke true untuk menampilkan Dashboard saat dibuka
+  const [showUsers, setShowUsers] = useState(false);
+  const [showDashboard, setShowDashboard] = useState(true);
+  const [sidebarExpanded, setSidebarExpanded] = useState(true);
 
   const toggleUserList = () => {
-    setShowUsers(true); // Tampilkan UserList
-    setShowDashboard(false); // Sembunyikan Dashboard
+    setShowUsers(true);
+    setShowDashboard(false);
   };
 
   const toggleDashboard = () => {
-    setShowDashboard(true); // Tampilkan Dashboard
-    setShowUsers(false); // Sembunyikan UserList
+    setShowDashboard(true);
+    setShowUsers(false);
+  };
+
+  const toggleSidebar = () => {
+    setSidebarExpanded(!sidebarExpanded);
   };
 
   return (
     <div className="admin-dashboard">
-      {/* Sidebar */}
-      <aside className="sidebar">
+
+
+      <aside className={`sidebar ${sidebarExpanded ? 'expanded' : 'collapsed'}`}>
         <div className="sidebar-header">
-          <h2>Admin Panel</h2>
+          <h2 className="sidebar-title">Admin Panel</h2>
         </div>
         <nav>
           <ul>
             <li>
-              <a href="#" onClick={toggleDashboard}>Dashboard</a> {/* Menghubungkan dengan fungsi toggleDashboard */}
+              <a href="#" onClick={toggleDashboard}><FaTachometerAlt /> {sidebarExpanded && 'Dashboard'}</a>
             </li>
-            <li><a href="#" onClick={toggleUserList}>Users</a></li> {/* Tambahkan onClick */}
-            <li><a href="#">Jobs</a></li>
-            <li><a href="#">Settings</a></li>
+            <li>
+              <a href="#" onClick={toggleUserList}><FaUsers /> {sidebarExpanded && 'Users'}</a>
+            </li>
+            <li>
+              <a href="#"><FaBriefcase /> {sidebarExpanded && 'Jobs'}</a>
+            </li>
+            <li>
+              <a href="#"><FaCog /> {sidebarExpanded && 'Settings'}</a>
+            </li>
           </ul>
         </nav>
       </aside>
 
-      {/* Main Content */}
       <main className="main-content">
-        {/* Navbar */}
+              <button className="sidebar-toggle" onClick={toggleSidebar}>
+        {sidebarExpanded ? <FaTimes /> : <FaBars />}
+      </button>
         <header className="navbar">
           <h1>Welcome, Admin</h1>
           <div className="user-info">
@@ -47,15 +61,12 @@ const AdminDashboard = () => {
           </div>
         </header>
 
-        {showDashboard && <Dashboard />} {/* Menampilkan Dashboard jika showDashboard true */}
-        
-        {/* User List Section */}
-        {showUsers && ( // Tampilkan UserList jika showUsers true
+        {showDashboard && <Dashboard />}
+        {showUsers && (
           <section className="user-list-section">
             <UserList />
           </section>
         )}
-
       </main>
     </div>
   );

@@ -1,0 +1,25 @@
+/* Aturan CSS yang ada sebelumnya ... */
+
+/* Responsivitas untuk layar kecil */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%; /* Sidebar mengambil lebar penuh */
+        position: relative; /* Ubah posisi menjadi relatif */
+    }
+
+    .main-content {
+        width: 100%; /* Konten utama mengambil lebar penuh */
+        padding: 20px; /* Tambahkan padding */
+    }
+
+    .navbar {
+        flex-direction: column; /* Ubah navbar menjadi kolom */
+        align-items: center; /* Tengahkan item di navbar */
+    }
+
+    .user-info {
+        margin-top: 10px; /* Tambahkan margin atas */
+    }
+}
+
+/* Aturan CSS yang ada setelahnya ... */
