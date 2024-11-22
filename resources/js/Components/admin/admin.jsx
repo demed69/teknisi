@@ -2,22 +2,32 @@ import React, { useState } from 'react';
 import '@/Components/css/AdminDashboard.css';
 import UserList from './user/user';
 import Dashboard from '@/Components/admin/Dashboard';
-import { FaUsers, FaTachometerAlt, FaBriefcase, FaCog, FaBars, FaTimes } from 'react-icons/fa';
+import { FaUsers, FaTachometerAlt, FaBriefcase, FaCog, FaBars, FaTimes, FaFile } from 'react-icons/fa';
+import Jobs from './jobs/jobs';
 
 const AdminDashboard = () => {
   const [showUsers, setShowUsers] = useState(false);
   const [showDashboard, setShowDashboard] = useState(true);
+  const [showJobs, setShowJobs] = useState(false);
   const [sidebarExpanded, setSidebarExpanded] = useState(true);
 
   const toggleUserList = () => {
     setShowUsers(true);
     setShowDashboard(false);
+    setShowJobs(false);
   };
 
   const toggleDashboard = () => {
     setShowDashboard(true);
     setShowUsers(false);
+    setShowJobs(false);
   };
+
+  const toggleJobs = () => {
+    setShowJobs(true);
+    setShowUsers(false);
+    setShowDashboard(false);
+  }
 
   const toggleSidebar = () => {
     setSidebarExpanded(!sidebarExpanded);
@@ -40,10 +50,10 @@ const AdminDashboard = () => {
               <a href="#" onClick={toggleUserList}><FaUsers /> {sidebarExpanded && 'Users'}</a>
             </li>
             <li>
-              <a href="#"><FaBriefcase /> {sidebarExpanded && 'Jobs'}</a>
+              <a href="#" onClick={toggleJobs}><FaBriefcase /> {sidebarExpanded && 'Jobs'}</a>
             </li>
             <li>
-              <a href="#"><FaCog /> {sidebarExpanded && 'Settings'}</a>
+              <a href="#"><FaFile /> {sidebarExpanded && 'Jobs report'}</a>
             </li>
           </ul>
         </nav>
@@ -65,6 +75,11 @@ const AdminDashboard = () => {
         {showUsers && (
           <section className="user-list-section">
             <UserList />
+          </section>
+        )}
+        {showJobs && (
+          <section>
+            <Jobs />
           </section>
         )}
       </main>

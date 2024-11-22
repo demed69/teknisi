@@ -6,7 +6,7 @@ const UserList = () => {
     <>
     <div className='flex flex-row '>
      {/* Open the modal using document.getElementById('ID').showModal() method */}
-            <button className="btn" onClick={()=>document.getElementById('my_modal_2').showModal()}>Tambah Pengguna</button>
+            <button className="btn btn-success" onClick={()=>document.getElementById('my_modal_2').showModal()}>Tambah Pengguna</button>
             <dialog id="my_modal_2" className="modal">
               <div className="modal-box">
                 <TambahUser />
